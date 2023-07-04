@@ -1,0 +1,69 @@
+<!-- games.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, width=device-width">    
+  <title>game Library - games</title>
+  <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='icon.jpg') }}" rel="icon">
+
+</head>
+<body class="hm">
+  <div class="container">
+    <h1 class="title">Game Library</h1>
+
+    <div class="collapse" id="navbar">
+      <ul class="navbar">
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('games') }}">Game Library</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('request_game') }}">Request game</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('history') }}">History</a></li>
+      </ul>
+      <ul class="navbar-log" id="so">
+        <li class="log">
+          <p class="log-name">Profile: {{ session['email'] }}</p>
+          <a class="log-link" href="{{ url_for('signout') }}">Log Out</a>
+        </li>
+      </ul>
+    </div>
+ <!-- Game Table -->
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Publisher(s)</th>
+          <th>Picture</th>
+          <th>Details</th>
+          <th>Check Image</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for game in games %}
+        <tr>
+          <td>{{ game['name'] }}</td> 
+          <td>{{ game['category'] }}</td> 
+          <td>{{ game['publishers'] }}</td> 
+          <td><img src="{{ game['picture'] }}" alt="Game Picture" width="100"></td> 
+          <td><a href="{{ game['details'] }}">Details</a></td>
+          <td><a href="{{ url_for('show_image', image=game['picture'], name=game['name']) }}">Check Image</a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+    {% if session['email'] == 'admin@gmail.com' %}
+    <div class="admin-links">
+      <a href="{{ url_for('add_game') }}">Add game</a>
+      <a href="{{ url_for('remove_game') }}">Remove game</a>
+    </div>
+    {% endif %}
+    <div class="dev">
+      <p>Developed by : Kushan Eaman Thilakarathne</p>
+      <a class="social-icon" href="https://www.linkedin.com/in/kushan-eaman-thilakarathne-9258b71a3"><img src="../static/linkedinlogo.png" alt="linkedin logo" width="50px"></a>
+      <a class="social-icon" href="https://www.instagram.com/kush_ketzi/"><img src="../static/instalogo.png" alt="instergram logo" width="30px"></a>
+      <a class="social-icon" href="https://www.facebook.com/kushan.e.thilakarathna"><img src="../static/Fblogo.png" alt="Fb logo" width="50px"></a>
+    </div>
+  </div>
+</body>
+</html>

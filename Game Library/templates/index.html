@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, width=device-width">
+        
+  <title>Game Library - Home</title>
+  <link href="{{ url_for('static', filename='icon.jpg') }}" rel="icon">
+  <link href="{{ url_for('static', filename='sign.css') }}" rel="stylesheet">
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var snc = document.querySelector(".snc");
+      var logo = document.querySelector(".content");
+      var clickHere = document.querySelector(".ch");
+
+      logo.addEventListener("click", function() {
+        snc.style.display = "block";
+        clickHere.style.display = "none";
+      });
+    });
+  </script>
+
+</head>
+<body class="sn">
+  <div class="wrapper signin">
+    <div class="content">
+      <div class="logo">
+        <h1>
+          <span>Welcome To The Game Library</span>
+        </h1>
+      </div>
+      <div class="snc hidden">
+        <p>Sign in or sign up to explore our collection of games.</p>
+        <a class="btn" href="/signin">Sign In</a> <br>
+        <a class="btn" href="/signup">Sign Up</a> <br>
+      </div>
+
+      <div class="ch"> 
+        <h1>Click Here</h1>
+      </div>
+
+      <div class="snc dev ">
+        <p>Developed by : Kushan Eaman Thilakarathne</p>
+        <a class="social-icon" href="https://www.linkedin.com/in/kushan-eaman-thilakarathne-9258b71a3"><img src="../static/linkedinlogo.png" alt="linkedin logo" width="50px"></a>
+        <a class="social-icon" href="https://www.instagram.com/kush_ketzi/"><img src="../static/instalogo.png" alt="instergram logo" width="30px"></a>
+        <a class="social-icon" href="https://www.facebook.com/kushan.e.thilakarathna"><img src="../static/Fblogo.png" alt="Fb logo" width="50px"></a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

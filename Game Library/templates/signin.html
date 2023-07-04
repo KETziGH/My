@@ -1,0 +1,42 @@
+<!-- signin.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, width=device-width">
+  <title>game Library - Sign In</title>
+  <link href="{{ url_for('static', filename='icon.jpg') }}" rel="icon">
+  <link href="{{ url_for('static', filename='sign.css') }}" rel="stylesheet">
+
+</head>
+<body class="sn">
+  <div class="wrapper signin">
+    <div class="content">
+      <div class="logo">
+        <h1>Sign In</h1>
+      </div>
+        {% if error %}
+          <p>{{ error }}</p>
+        {% endif %}
+
+      <div class="snc">  
+        <form class="form-group" action="/signin" method="POST">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+          <br>
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+          <br>
+          <button class="btn" type="submit">Sign In</button>
+        </form>
+      </div>
+      <div class="snc dev">
+        <p>Developed by : Kushan Eaman Thilakarathne</p>
+        <a class="social-icon" href="https://www.linkedin.com/in/kushan-eaman-thilakarathne-9258b71a3"><img src="../static/linkedinlogo.png" alt="linkedin logo" width="50px"></a>
+        <a class="social-icon" href="https://www.instagram.com/kush_ketzi/"><img src="../static/instalogo.png" alt="instergram logo" width="30px"></a>
+        <a class="social-icon" href="https://www.facebook.com/kushan.e.thilakarathna"><img src="../static/Fblogo.png" alt="Fb logo" width="50px"></a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

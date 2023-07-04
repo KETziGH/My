@@ -1,0 +1,71 @@
+<!-- remove_game.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, width=device-width">    
+  <title>Remove</title>
+  <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='icon.jpg') }}" rel="icon">
+
+  
+    
+</head>
+<body class="rm">
+  <div class="container">
+    <h1 class="title">Remove</h1>
+
+    <div class="collapse" id="navbar">
+      <ul class="navbar">
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('games') }}">Game Library</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('request_game') }}">Request game</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('history') }}">History</a></li>
+      </ul>
+      <ul class="navbar-log" id="so">
+        <li class="log">
+          <p class="log-name">Profile: {{ session['email'] }}</p>
+          <a class="log-link" href="{{ url_for('signout') }}">Log Out</a>
+        </li>
+      </ul>
+    </div>
+
+    {% if session['email'] == 'admin@gmail.com' %}
+
+    <h2>Remove Games</h2>
+    <div class="form" id="rem">
+      <form class="form-group" action="{{ url_for('remove_game') }}" method="POST">
+          <label for="game_id">Select game to Remove:</label>
+          <select class="sel" id="game_id" name="game_id">
+              {% for game in games %}
+                  <option value="{{ game['id'] }}">{{ game['name'] }}</option>
+              {% endfor %}
+          </select>
+
+          <input class="admin-add" id="rb" type="submit" value="Remove">
+      </form>
+    </div>
+
+    <h2>Remove Signup Members</h2>
+    <div class="form" id="rem">
+      <form class="form-group" action="{{ url_for('remove_signup_members') }}" method="POST">
+        <label for="member_email">Select member to Remove:</label>
+        <select class="sel" id="member_email" name="member_email">
+          {% for member in members %}
+            <option value="{{ member['email'] }}">{{ member['name'] }}</option>
+          {% endfor %}
+        </select>
+        <input class="admin-add" id="rb" type="submit" value="Remove">
+      </form>
+    </div>
+    {% endif %}
+
+    <div class="dev">
+      <p>Developed by : Kushan Eaman Thilakarathne</p>
+      <a class="social-icon" href="https://www.linkedin.com/in/kushan-eaman-thilakarathne-9258b71a3"><img src="../static/linkedinlogo.png" alt="linkedin logo" width="50px"></a>
+      <a class="social-icon" href="https://www.instagram.com/kush_ketzi/"><img src="../static/instalogo.png" alt="instergram logo" width="30px"></a>
+      <a class="social-icon" href="https://www.facebook.com/kushan.e.thilakarathna"><img src="../static/Fblogo.png" alt="Fb logo" width="50px"></a>
+    </div>
+  </div>
+</body>
+</html>

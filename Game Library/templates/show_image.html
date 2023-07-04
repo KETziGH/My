@@ -1,0 +1,57 @@
+<!-- show_image.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, width=device-width">    
+  <title>Game Library - Show Image</title>
+  <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='icon.jpg') }}" rel="icon">
+  
+  <style>
+    /*  CSS styles */
+    .image-container {
+      text-align: center;
+    }
+    
+    .image-container img {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body class="si">
+  <div class="container">
+    <h1 class="title">Game Library</h1>
+
+    <div class="collapse" id="navbar">
+      <ul class="navbar">
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('games') }}">Game Library</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('request_game') }}">Request game</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('history') }}">History</a></li>
+      </ul>
+      <ul class="navbar-log" id="so">
+        <li class="log">
+          <p class="log-name">Profile: {{ session['email'] }}</p>
+          <a class="log-link" href="{{ url_for('signout') }}">Log Out</a>
+        </li>
+      </ul>
+    </div>
+    
+       <!-- Game Name -->
+       <h2>{{ game_name }}</h2>
+
+    <!-- Image Display -->
+    <div class="image-container">
+      <img src="{{ request.args.get('image') }}" alt="Game Image"   width="">
+    </div>
+    <div class="dev">
+      <p>Developed by : Kushan Eaman Thilakarathne</p>
+      <a class="social-icon" href="https://www.linkedin.com/in/kushan-eaman-thilakarathne-9258b71a3"><img src="../static/linkedinlogo.png" alt="linkedin logo" width="50px"></a>
+      <a class="social-icon" href="https://www.instagram.com/kush_ketzi/"><img src="../static/instalogo.png" alt="instergram logo" width="30px"></a>
+      <a class="social-icon" href="https://www.facebook.com/kushan.e.thilakarathna"><img src="../static/Fblogo.png" alt="Fb logo" width="50px"></a>
+    </div>
+
+  </div>
+</body>
+</html>

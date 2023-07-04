@@ -1,0 +1,58 @@
+<!-- add_game.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, width=device-width">    
+  <title>Add Game</title>
+  <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='icon.jpg') }}" rel="icon">
+   
+</head>
+<body class="ad">
+  <div class="container">
+    <h1 class="title">Add a New Game</h1>
+
+    <div class="collapse" id="navbar">
+      <ul class="navbar">
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('games') }}">Game Library</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('request_game') }}">Request game</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('history') }}">History</a></li>
+      </ul>
+      <ul class="navbar-log" id="so">
+        <li class="log">
+          <p class="log-name">Profile: {{ session['email'] }}</p>
+          <a class="log-link" href="{{ url_for('signout') }}">Log Out</a>
+        </li>
+      </ul>
+    </div>
+    <div class="form">
+      <form class="form-group" action="{{ url_for('add_game') }}" method="POST">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter The Game Name" required><br>
+
+          <label for="category">Category</label>
+          <input type="text" id="category" name="category" placeholder="Enter Genre"  required><br>
+
+          <label for="publishers">Publisher(s)</label> 
+          <input type="text" id="publishers" name="publishers" placeholder="Enter Publisher(s)" required><br> 
+
+          <label for="picture">Picture URL</label>
+          <input type="text" id="picture" name="picture" placeholder="Enter Picture URL" required><br>
+
+          <label for="details">Details URL</label>
+          <input type="text" id="details" name="details" placeholder="Enter The Wikipedia URL" required><br>
+
+          <input class="admin-add" type="submit" value="Add Game">
+      </form>
+    </div>
+    <div class="dev">
+      <p>Developed by : Kushan Eaman Thilakarathne</p>
+      <a class="social-icon" href="https://www.linkedin.com/in/kushan-eaman-thilakarathne-9258b71a3"><img src="../static/linkedinlogo.png" alt="linkedin logo" width="50px"></a>
+      <a class="social-icon" href="https://www.instagram.com/kush_ketzi/"><img src="../static/instalogo.png" alt="instergram logo" width="30px"></a>
+      <a class="social-icon" href="https://www.facebook.com/kushan.e.thilakarathna"><img src="../static/Fblogo.png" alt="Fb logo" width="50px"></a>
+    </div>
+  </div>
+</body>
+</html>

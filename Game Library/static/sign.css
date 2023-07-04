@@ -1,0 +1,131 @@
+.sn .content {
+  width: 500px;
+  height: calc(100% - 40px);
+  min-height: calc(100% - 40px);
+  overflow-y: auto;
+  z-index: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 40px 0 40px;
+  background-color: rgba(255, 255, 255, 0.5); /* Partially transparent white background */
+  border-radius: 4px;
+}
+
+@media only screen and (max-width: 767px) {
+  .sn .content {
+    width: 100%;
+  }
+}
+
+.sn .wrapper {
+  width: 100%;
+  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  background-size: cover;
+}
+
+.sn .logo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+  margin-bottom: 100px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 4px;
+  font-size: large;
+  padding: 0px 40px 0px 40px;
+}
+.snc{
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 4px;
+  padding: 20px 40px 20px 40px;
+  margin-bottom: 24px;
+}
+
+.social-icon {
+  margin-left: 12px;
+  margin-right: 12px;
+  cursor: pointer;
+ }
+
+.sn {
+  background-image: url(../static/a.png);
+}
+
+.btn {
+  display: block;
+  width: 70px;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+.dev {
+  margin-top: 100px;
+  margin-bottom: auto;
+  text-align: center;
+  padding: 0px 40px 0px 40px;
+}
+
+.dev p{
+  margin-bottom: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.form {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #f1f1f1;
+  padding: 20px;
+  border-radius: 4px;
+  text-align: center
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+.ch {
+  width: auto;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 4px;
+  padding: 0px 20px 0px 20px;
+  margin: 1x;
+}
+.ch:hover {
+  background-color: rgba(255, 255, 255, 0.7);;
